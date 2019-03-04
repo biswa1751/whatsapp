@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import '../models/chat_model.dart';
 
 class SelectContactScreen extends StatefulWidget {
+  final bool callScreen;
+
+  const SelectContactScreen({Key key, this.callScreen}) : super(key: key);
+
   @override
   _SelectContactScreenState createState() => _SelectContactScreenState();
 }
@@ -57,7 +61,7 @@ class _SelectContactScreenState extends State<SelectContactScreen> {
             leading: CircleAvatar(child: Icon(Icons.group,color: Colors.white,),
         
             backgroundColor: Theme.of(context).accentColor,),
-            title: Text("New Group",style: TextStyle(
+            title: Text(widget.callScreen? "New Group Call":"New Group ",style: TextStyle(
               fontWeight: FontWeight.bold
             ),),
           );
@@ -80,6 +84,21 @@ class _SelectContactScreenState extends State<SelectContactScreen> {
           leading: CircleAvatar(
            backgroundImage:  NetworkImage(dummyData[i].avatarUrl),
           ),
+          trailing: widget.callScreen?ButtonBar(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.call),
+                color: Theme.of(context).primaryColor  ,
+              ),
+              IconButton(
+                onPressed: (){},
+                icon: Icon(Icons.videocam),
+                color: Theme.of(context).primaryColor
+              ),
+            ],
+          ):null,
         );
       },
       itemCount: dummyData.length+2,

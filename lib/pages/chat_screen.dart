@@ -23,25 +23,22 @@ class ChatScreenState extends State<ChatScreen> {
                 height: 10.0,
               ),
               new ListTile(
-                 onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context)=>MessegeScreen(
-                    chat:dummyData[i] ,
-                  )
-                ));
-              },
-                leading:  Container(
-                        height: 55,
-                        width: 55,
-                       // child: Image.network(dummyData[i].avatarUrl),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(55),
-                          image: DecorationImage(
-                            image: NetworkImage(dummyData[i].avatarUrl),
-                            fit: BoxFit.cover
-                          )
-                        ),
-                      ),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MessegeScreen(
+                            chat: dummyData[i],
+                          )));
+                },
+                leading: Container(
+                  height: 55,
+                  width: 55,
+                  // child: Image.network(dummyData[i].avatarUrl),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(55),
+                      image: DecorationImage(
+                          image: NetworkImage(dummyData[i].avatarUrl),
+                          fit: BoxFit.cover)),
+                ),
                 title: new Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -49,7 +46,10 @@ class ChatScreenState extends State<ChatScreen> {
                       dummyData[i].name,
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    new Text(dummyData[i].time,style: Theme.of(context).textTheme.caption ,),
+                    new Text(
+                      dummyData[i].time,
+                      style: Theme.of(context).textTheme.caption,
+                    ),
                   ],
                 ),
                 subtitle: new Text(dummyData[i].messeges),
@@ -59,14 +59,18 @@ class ChatScreenState extends State<ChatScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-      onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context)=>SelectContactScreen()
-                ));
-      },
-      child: Icon(Icons.message,color: Colors.white,),
-      backgroundColor: Theme.of(context).accentColor,
-    ),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SelectContactScreen(
+                    callScreen: false,
+                  )));
+        },
+        child: Icon(
+          Icons.message,
+          color: Colors.white,
+        ),
+        backgroundColor: Theme.of(context).accentColor,
+      ),
     );
   }
 }
