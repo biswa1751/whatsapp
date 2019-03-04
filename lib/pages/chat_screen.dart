@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/pages/messege_screen.dart';
+import 'package:whatsapp/pages/select_contact_screen.dart';
 import '../models/chat_model.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -58,7 +59,11 @@ class ChatScreenState extends State<ChatScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-      onPressed: (){},
+      onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context)=>SelectContactScreen()
+                ));
+      },
       child: Icon(Icons.message,color: Colors.white,),
       backgroundColor: Theme.of(context).accentColor,
     ),
