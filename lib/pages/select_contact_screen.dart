@@ -79,7 +79,7 @@ class _SelectContactScreenState extends State<SelectContactScreen> {
         i=i-2;
         return ListTile
         (
-           subtitle: Text(dummyData[i].messeges),
+           subtitle: Text(dummyData[i].status),
           title: Text(dummyData[i].name),
           leading: CircleAvatar(
            backgroundImage:  NetworkImage(dummyData[i].avatarUrl),

@@ -47,22 +47,28 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
             child: SizedBox(
               height: 100,
               child: Card(
+                margin: EdgeInsets.all(0),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 18.0),
                   child: ListTile(
-                    trailing: ButtonBar(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.call),
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        IconButton(
+                    trailing: Container(
+                      padding: EdgeInsets.only(left: 20),
+                      child:Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.call),
+                            color: Colors.teal[500],
+                          ),
+                          SizedBox(width: 5,),
+                          IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.videocam),
-                            color: Theme.of(context).primaryColor),
-                      ],
+                            color: Colors.teal[500],
+                          )
+                        ],
+                      ),
                     ),
                     title: Text(
                       widget.chat.name,
@@ -84,34 +90,31 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
               ),
             ),
           ),
-          Flexible(
-            child: Container(
-              height: 180,
-              padding: EdgeInsets.all(8),
-              child: Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15.0, left: 10, bottom: 5),
-                      child: Text(
-                        "Today",
-                        style: TextStyle(color: Colors.green, fontSize: 15),
-                      ),
+          Container(
+            padding: EdgeInsets.all(8),
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 15.0, left: 10, bottom: 5),
+                    child: Text(
+                      "Today",
+                      style: TextStyle(color: Colors.green, fontSize: 15),
                     ),
-                    Divider(),
-                    ListTile(
-                      trailing: Text("Unavailable"),
-                      leading: Icon(
-                        Icons.call_made,
-                        color: Colors.green,
-                      ),
-                      title: Text("Outgoing"),
-                      subtitle: Text(widget.chat.time),
-                    )
-                  ],
-                ),
+                  ),
+                  Divider(),
+                  ListTile(
+                    trailing: Text("Unavailable"),
+                    leading: Icon(
+                      Icons.call_made,
+                      color: Colors.green,
+                    ),
+                    title: Text("Outgoing"),
+                    subtitle: Text(widget.chat.time),
+                  ),
+                ],
               ),
             ),
           )
