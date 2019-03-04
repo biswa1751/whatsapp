@@ -25,21 +25,37 @@ class _SelectContactScreenState extends State<SelectContactScreen> {
       ),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.search),
+          icon: Icon(Icons.search,size: 25,),
           onPressed: (){},
         ),
-        IconButton(
-          icon: Icon(Icons.more_vert),
-          onPressed: (){},
-        ),
+       PopupMenuButton(
+         itemBuilder: (context){
+           return [PopupMenuItem(
+             child: Text("Invite a friend"),
+           ),
+           PopupMenuItem(
+             child: Text("Contacts"),
+           ),
+           PopupMenuItem(
+             child: Text("Refresh"),
+           ),
+           PopupMenuItem(
+             child: Text("Help"),
+           )
+           ];
+         },
+       )
       ],
     ),
     body: ListView.builder(
+      padding: EdgeInsets.symmetric(vertical: 15),
       itemBuilder: (context,i){
         if(i==0)
         {
           return ListTile(
+           
             leading: CircleAvatar(child: Icon(Icons.group,color: Colors.white,),
+        
             backgroundColor: Theme.of(context).accentColor,),
             title: Text("New Group",style: TextStyle(
               fontWeight: FontWeight.bold
@@ -59,6 +75,7 @@ class _SelectContactScreenState extends State<SelectContactScreen> {
         i=i-2;
         return ListTile
         (
+           subtitle: Text(dummyData[i].messeges),
           title: Text(dummyData[i].name),
           leading: CircleAvatar(
            backgroundImage:  NetworkImage(dummyData[i].avatarUrl),

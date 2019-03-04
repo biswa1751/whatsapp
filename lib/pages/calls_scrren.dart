@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
+import 'package:whatsapp/pages/select_contact_screen.dart';
 
 class CallsScreen extends StatelessWidget {
   @override
@@ -56,6 +57,10 @@ class CallsScreen extends StatelessWidget {
     floatingActionButton: FloatingActionButton(
       onPressed: (){
         
+            Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context)=>SelectContactScreen()
+                ));
+  
       },
       child: Icon(Icons.call,color: Colors.white,),
       backgroundColor: Theme.of(context).accentColor,
