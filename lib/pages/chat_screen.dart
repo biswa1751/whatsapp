@@ -32,7 +32,6 @@ class ChatScreenState extends State<ChatScreen> {
                 leading: Container(
                   height: 55,
                   width: 55,
-                  // child: Image.network(dummyData[i].avatarUrl),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(55),
                       image: DecorationImage(

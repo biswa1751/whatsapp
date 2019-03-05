@@ -36,24 +36,33 @@ class _MessegeScreenState extends State<MessegeScreen> {
             color: Colors.white,
           ),
           PopupMenuButton(
+            onSelected: (val){
+              print("Value :$val");
+            },
             itemBuilder: (context) {
               return [
-                PopupMenuItem(
+                PopupMenuItem<String>(
                   child: Text("View contact"),
+                  value: "View contact",
                 ),
-                PopupMenuItem(
+                PopupMenuItem<String>(
                   child: Text("Media"),
+                  value: "Media",
                 ),
-                PopupMenuItem(
+                PopupMenuItem<String>(
                   child: Text("Search"),
+                  value: "Search",
                 ),
-                PopupMenuItem(
+                PopupMenuItem<String>(
                   child: Text("Mute notifications"),
+                  value: "Mute notifications",
                 ),
-                PopupMenuItem(
+                PopupMenuItem<String>(
                   child: Text("Walpaper"),
+                  value: "Walpaper",
                 ),
-                PopupMenuItem(
+                PopupMenuItem<String>(
+                  value: "More",
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[Text("More"), Icon(Icons.play_arrow,size: 20,color: Colors.grey,)],
