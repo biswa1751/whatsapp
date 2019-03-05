@@ -63,7 +63,6 @@ class _MakePopupButtonState extends State<MakePopupButton> {
         return _list[val];
       },
       onSelected: (val) {
-        print("object :$val");
         if(val.toString()=="Settings")
         {
           Navigator.of(context).push(MaterialPageRoute(
@@ -77,6 +76,21 @@ class _MakePopupButtonState extends State<MakePopupButton> {
               callScreen: false,
             )
           ));
+        }
+        else if(val.toString()=="Clear call log")
+        {
+          showDialog(
+            context: context,
+            builder: (context)=>AlertDialog(
+              title: Text("Do you want to clear your entire call log?"),
+              actions: <Widget>[
+                FlatButton(child: Text("CANCEL"),onPressed: (){
+                  Navigator.pop(context);
+                },),
+                FlatButton(child: Text("OK"),onPressed: (){},),
+              ],
+            )
+          );
         }
       },
       onCanceled: () {
