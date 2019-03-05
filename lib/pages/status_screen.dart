@@ -105,6 +105,7 @@ class StatusScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            heroTag: "f1",
           mini: true,
         onPressed: () {},
         child: Icon(
@@ -117,6 +118,7 @@ class StatusScreen extends StatelessWidget {
         height: 15,
       ),
       FloatingActionButton(
+        heroTag: "f2",
         onPressed: () {},
         child: Icon(
           Icons.camera_alt,
