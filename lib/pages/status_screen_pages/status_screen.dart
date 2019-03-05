@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
+import 'package:whatsapp/pages/status_screen_pages/type_status_screen.dart';
 
 class StatusScreen extends StatelessWidget {
   @override
@@ -107,7 +108,12 @@ class StatusScreen extends StatelessWidget {
           FloatingActionButton(
             heroTag: "f1",
           mini: true,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=>TypeStatusScreen(
+            )
+          ));
+        },
         child: Icon(
           Icons.create,
           color: Colors.grey[800],

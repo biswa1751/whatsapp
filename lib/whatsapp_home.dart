@@ -3,8 +3,8 @@ import 'package:whatsapp/pages/call_screen_pages/calls_scrren.dart';
 import 'package:whatsapp/pages/camera_screen.dart';
 import 'package:whatsapp/pages/chat_screen.dart';
 import 'package:whatsapp/pages/make_popup_button.dart';
-import 'package:whatsapp/pages/status_screen.dart';
 import 'package:camera/camera.dart';
+import 'package:whatsapp/pages/status_screen_pages/status_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
