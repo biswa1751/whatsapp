@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
-import 'package:whatsapp/pages/call_info_screen.dart';
+import 'package:whatsapp/pages/call_screen_pages/call_info_screen.dart';
 import 'package:whatsapp/pages/select_contact_screen.dart';
 
 class CallsScreen extends StatelessWidget {

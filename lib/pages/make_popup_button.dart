@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/pages/popup_screens/settings_screen.dart';
+import 'package:whatsapp/pages/popup_screens/status_privacy_screen.dart';
 import 'package:whatsapp/pages/select_contact_screen.dart';
-import 'package:whatsapp/pages/settings_screen.dart';
 
 class MakePopupButton extends StatefulWidget {
   final int index;
@@ -91,6 +92,12 @@ class _MakePopupButtonState extends State<MakePopupButton> {
               ],
             )
           );
+        }
+        else if(val.toString()=="Status Privacy")
+        {
+         Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=>StatusPrivacyScreen()
+          )); 
         }
       },
       onCanceled: () {
