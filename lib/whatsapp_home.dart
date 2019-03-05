@@ -4,8 +4,12 @@ import 'package:whatsapp/pages/camera_screen.dart';
 import 'package:whatsapp/pages/chat_screen.dart';
 import 'package:whatsapp/pages/make_popup_button.dart';
 import 'package:whatsapp/pages/status_screen.dart';
+import 'package:camera/camera.dart';
 
 class MyHomePage extends StatefulWidget {
+  final List<CameraDescription> cameras;
+
+  const MyHomePage({Key key, this.cameras}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -20,16 +24,17 @@ class _MyHomePageState extends State<MyHomePage>
     _tabController.addListener(() {
       setState(() {});
     });
+    
   }
 
   @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: new AppBar(
+    return 
+    Scaffold(
+      appBar: _tabController.index==0?null:AppBar(
         title: new Text('WhatsApp'),
         bottom: new TabBar(
-          //  isScrollable: true,
           isScrollable: true,
           controller: _tabController,
           indicatorColor: Colors.white,
@@ -65,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage>
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
-          new CameraScreen(),
+          new CameraScreen(
+            cameras: widget.cameras,
+          ),
           new ChatScreen(),
           new StatusScreen(),
           new CallsScreen(),
