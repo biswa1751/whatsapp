@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage>
             cameras: widget.cameras,
           ),
           new ChatScreen(),
-          new StatusScreen(),
+          new StatusScreen(widget.cameras),
           new CallsScreen(),
         ],
       ),

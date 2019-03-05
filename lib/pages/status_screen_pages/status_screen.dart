@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
+import 'package:whatsapp/pages/camera_screen.dart';
 import 'package:whatsapp/pages/status_screen_pages/type_status_screen.dart';
+import 'package:camera/camera.dart';
 
 class StatusScreen extends StatelessWidget {
+  final List<CameraDescription> cameras;
+  StatusScreen(this.cameras);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,6 +17,13 @@ class StatusScreen extends StatelessWidget {
             return Column(
               children: <Widget>[
                 ListTile( 
+                  onTap: (){
+                     Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=>CameraScreen(
+              cameras: cameras,
+            )
+          ));
+                  },
                   leading: Stack(
                     children: <Widget>[
                       Container(
@@ -125,7 +136,13 @@ class StatusScreen extends StatelessWidget {
       ),
       FloatingActionButton(
         heroTag: "f2",
-        onPressed: () {},
+        onPressed: () {
+           Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=>CameraScreen(
+              cameras: cameras,
+            )
+          ));
+        },
         child: Icon(
           Icons.camera_alt,
           color: Colors.white,
