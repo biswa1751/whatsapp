@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/whatsapp_home.dart';
+import 'package:whatsapp/home_page.dart';
+import 'package:whatsapp/models/all_colors.dart';
 import 'package:camera/camera.dart';
 
 List<CameraDescription> cameras;
@@ -14,10 +15,10 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Whatsapp',
       theme: new ThemeData(
-        primaryColor: new Color(0xff075E54),
-        accentColor: new Color(0xff25d366),
+        primaryColor: primaryColor,
+        accentColor: accentColor,
       ),
-      home: new MyHomePage(
+      home:  HomePage(
         cameras: cameras,
       ),
       debugShowCheckedModeBanner: false,

@@ -6,15 +6,15 @@ import 'package:whatsapp/pages/make_popup_button.dart';
 import 'package:camera/camera.dart';
 import 'package:whatsapp/pages/status_screen_pages/status_screen.dart';
 
-class MyHomePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   final List<CameraDescription> cameras;
 
-  const MyHomePage({Key key, this.cameras}) : super(key: key);
+  const HomePage({Key key, this.cameras}) : super(key: key);
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
+class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
   @override
