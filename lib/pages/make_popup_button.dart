@@ -60,44 +60,40 @@ class _MakePopupButtonState extends State<MakePopupButton> {
   Widget build(BuildContext context) {
     return PopupMenuButton(
       itemBuilder: (context) {
-        int val=widget.index-1;
+        int val = widget.index - 1;
         return _list[val];
       },
       onSelected: (val) {
-        if(val.toString()=="Settings")
-        {
+        if (val.toString() == "Settings") {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => SettingsScreen()));
+        } else if (val.toString() == "New group" ||
+            val.toString() == "New broadcast") {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context)=>SettingsScreen()
-          ));
-        }
-        else if(val.toString()=="New group"|| val.toString()=="New broadcast")
-        {
-           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context)=>SelectContactScreen(
-              callScreen: false,
-            )
-          ));
-        }
-        else if(val.toString()=="Clear call log")
-        {
+              builder: (context) => SelectContactScreen(
+                    callScreen: false,
+                  )));
+        } else if (val.toString() == "Clear call log") {
           showDialog(
-            context: context,
-            builder: (context)=>AlertDialog(
-              title: Text("Do you want to clear your entire call log?"),
-              actions: <Widget>[
-                FlatButton(child: Text("CANCEL"),onPressed: (){
-                  Navigator.pop(context);
-                },),
-                FlatButton(child: Text("OK"),onPressed: (){},),
-              ],
-            )
-          );
-        }
-        else if(val.toString()=="Status Privacy")
-        {
-         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context)=>StatusPrivacyScreen()
-          )); 
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: Text("Do you want to clear your entire call log?"),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text("CANCEL"),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      FlatButton(
+                        child: Text("OK"),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ));
+        } else if (val.toString() == "Status Privacy") {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => StatusPrivacyScreen()));
         }
       },
       onCanceled: () {

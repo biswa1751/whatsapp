@@ -33,9 +33,10 @@ class _MyHomePageState extends State<MyHomePage>
       appBar: _tabController.index == 0
           ? null
           : AppBar(
-              title: new Text('WhatsApp',style: TextStyle(
-                fontSize: 17
-              ),),
+              title: new Text(
+                'WhatsApp',
+                style: TextStyle(fontSize: 17),
+              ),
               bottom: new TabBar(
                 isScrollable: true,
                 controller: _tabController,
@@ -62,7 +63,10 @@ class _MyHomePageState extends State<MyHomePage>
                 ],
               ),
               actions: <Widget>[
-                new Icon(Icons.search,size: 25,),
+                new Icon(
+                  Icons.search,
+                  size: 25,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 5.0),
                 ),

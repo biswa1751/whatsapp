@@ -19,7 +19,6 @@ class ChatScreenState extends State<ChatScreen> {
         itemBuilder: (context, i) {
           return Column(
             children: <Widget>[
-
               new ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
