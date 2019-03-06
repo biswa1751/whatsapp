@@ -31,6 +31,7 @@ class _StatusPrivacyScreenState extends State<StatusPrivacyScreen> {
             Row(children: <Widget>[
               Radio(
                 value: 1,
+                activeColor: Color(0xff128C7E),
                 groupValue: groupValue,
                 onChanged: onPress,
               ),
@@ -45,6 +46,7 @@ class _StatusPrivacyScreenState extends State<StatusPrivacyScreen> {
             Row(children: <Widget>[
               Radio(
                 value: 2,
+                activeColor: Color(0xff128C7E),
                 groupValue: groupValue,
                 onChanged: onPress,
               ),
@@ -53,10 +55,13 @@ class _StatusPrivacyScreenState extends State<StatusPrivacyScreen> {
                 style: Theme.of(context).textTheme.subhead,
               ),
             ]),
-            Divider(height: 5,),
+            Divider(
+              height: 5,
+            ),
             Row(children: <Widget>[
               Radio(
                 value: 3,
+                activeColor: Color(0xff128C7E),
                 groupValue: groupValue,
                 onChanged: onPress,
               ),

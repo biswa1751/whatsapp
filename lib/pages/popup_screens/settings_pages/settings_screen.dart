@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:whatsapp/pages/popup_screens/profile%20page.dart';
+import 'package:whatsapp/pages/popup_screens/settings_pages/account_screen.dart';
+import 'package:whatsapp/pages/popup_screens/settings_pages/profile_page.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   List<String> _list = List<String>();
   List<IconData> _icon = List<IconData>();
+  List<Widget> _navigatorScreen=List<Widget>();
   @override
   void initState() {
     super.initState();
@@ -32,6 +34,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Icons.group,
       Icons.help
     ];
+    _navigatorScreen=[
+      AccountScreen(),
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+      FlutterLogo(),
+    ];
   }
 
   @override
@@ -47,33 +57,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
             return Column(
               children: <Widget>[
                 Container(
-                    height: 100,
-                    padding: EdgeInsets.only(top: 20),
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ProfilePage()));
-                      },
-                      title: Text(
-                        "Biswajit",
-                        style: Theme.of(context).textTheme.headline,
-                      ),
-                      subtitle: Text("Busy",
-                          style: Theme.of(context).textTheme.subhead),
-                      leading: Hero(
-                        tag: "profile_photo",
-                                              child: Container(
-                          height: 70,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(70),
-                              image: DecorationImage(
-                                  image: NetworkImage(dummyData[index].avatarUrl),
-                                  fit: BoxFit.cover)),
-                        ),
+                  height: 100,
+                  padding: EdgeInsets.only(top: 20),
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ProfilePage()));
+                    },
+                    title: Text(
+                      "Biswajit",
+                      style: Theme.of(context).textTheme.headline,
+                    ),
+                    subtitle: Text("Busy",
+                        style: Theme.of(context).textTheme.subhead),
+                    leading: Hero(
+                      tag: "profile_photo",
+                      child: Container(
+                        height: 70,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(70),
+                            image: DecorationImage(
+                                image: NetworkImage(dummyData[index].avatarUrl),
+                                fit: BoxFit.cover)),
                       ),
                     ),
                   ),
+                ),
                 Divider()
               ],
             );
@@ -81,6 +91,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           return Column(children: <Widget>[
             ListTile(
               title: Text(_list[index - 1]),
+              onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>_navigatorScreen[index-1]));
+                    },
               leading: (index != 1)
                   ? Icon(_icon[index - 1], color: Color(0xff128C7E))
                   : Transform.rotate(
