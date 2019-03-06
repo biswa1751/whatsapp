@@ -108,6 +108,7 @@ class StatusScreen extends StatelessWidget {
                   )),
                    new Divider(
                 height: 10.0,
+                indent: 90,
               ),
             ],
           );

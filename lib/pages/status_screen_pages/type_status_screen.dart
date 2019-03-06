@@ -36,7 +36,7 @@ class _TypeStatusScreenState extends State<TypeStatusScreen> {
                 color: Colors.white,
               ),
               IconButton(
-                icon: Icon(Icons.change_history),
+                icon: Icon(Icons.palette),
                 onPressed: () {},
                 color: Colors.white,
               ),
@@ -44,7 +44,7 @@ class _TypeStatusScreenState extends State<TypeStatusScreen> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: CircleAvatar(
-                  minRadius: 25,
+                  minRadius: 28,
                   backgroundColor: Theme.of(context).primaryColor,
                   child: IconButton(
                     icon: Icon(

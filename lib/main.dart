@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Whatsapp',
       theme: new ThemeData(
         primaryColor: new Color(0xff075E54),
-        accentColor: new Color(0xff25d366)
+        accentColor: new Color(0xff25d366),
       ),
       home: new MyHomePage(cameras: cameras,),
       debugShowCheckedModeBanner: false,

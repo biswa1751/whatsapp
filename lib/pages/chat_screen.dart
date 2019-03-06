@@ -19,9 +19,7 @@ class ChatScreenState extends State<ChatScreen> {
         itemBuilder: (context, i) {
           return Column(
             children: <Widget>[
-              new Divider(
-                height: 10.0,
-              ),
+
               new ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -52,7 +50,11 @@ class ChatScreenState extends State<ChatScreen> {
                   ],
                 ),
                 subtitle: new Text(dummyData[i].messeges),
-              )
+              ),
+              new Divider(
+                height: 10.0,
+                indent: 80,
+              ),
             ],
           );
         },

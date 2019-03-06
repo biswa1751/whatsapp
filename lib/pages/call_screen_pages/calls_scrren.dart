@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
 import 'package:whatsapp/pages/call_screen_pages/call_info_screen.dart';
 import 'package:whatsapp/pages/select_contact_screen.dart';
-
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 class CallsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,7 @@ class CallsScreen extends StatelessWidget {
         itemBuilder: (context, int i) {
           return Column(
             children: <Widget>[
-              new Divider(
-                height: 10.0,
-              ),
+             
               new ListTile(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
@@ -61,7 +59,11 @@ class CallsScreen extends StatelessWidget {
                         style: Theme.of(context).textTheme.body1,
                       ),
                     ],
-                  ))
+                  )),
+                   new Divider(
+                height: 10.0,
+                indent: 90,
+              ),
             ],
           );
         },
@@ -74,7 +76,7 @@ class CallsScreen extends StatelessWidget {
                   )));
         },
         child: Icon(
-          Icons.call,
+          MdiIcons.phonePlus,
           color: Colors.white,
         ),
         backgroundColor: Theme.of(context).accentColor,

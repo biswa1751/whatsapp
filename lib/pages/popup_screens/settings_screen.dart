@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
-
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -21,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       "Help"
     ];
     _icon=[
-      Icons.vpn_key,
+      MdiIcons.keyVariant,
       Icons.message,
       Icons.notifications,
       Icons.donut_large,
@@ -66,7 +68,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           
             ListTile(
               title: Text(_list[index-1]),
-              leading: Icon(_icon[index-1],color: Colors.teal[400],),
+              leading: (index!=1)?Icon(_icon[index-1],color: Color(0xff128C7E)):Transform.rotate(
+                angle: pi/4,
+                child: Icon(_icon[index-1],color: Color(0xff128C7E)),
+              ),
             ),
               Divider(
               indent: 70,
