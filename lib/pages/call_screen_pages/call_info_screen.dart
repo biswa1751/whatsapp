@@ -59,13 +59,13 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
                           IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.call),
-                            color: Colors.teal[500],
+                            color:  Color(0xff128C7E),
                           ),
                           SizedBox(width: 5,),
                           IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.videocam),
-                            color: Colors.teal[500],
+                            color:  Color(0xff128C7E),
                           )
                         ],
                       ),
@@ -77,7 +77,6 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
                     leading: Container(
                       height: 55,
                       width: 55,
-                      // child: Image.network(dummyData[i].avatarUrl),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(55),
                         image: DecorationImage(
@@ -101,7 +100,7 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
                         const EdgeInsets.only(top: 15.0, left: 10, bottom: 5),
                     child: Text(
                       "Today",
-                      style: TextStyle(color: Colors.green, fontSize: 15),
+                      style: TextStyle(color:  Color(0xff128C7E), fontSize: 15),
                     ),
                   ),
                   Divider(),

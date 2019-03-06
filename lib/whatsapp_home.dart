@@ -24,49 +24,53 @@ class _MyHomePageState extends State<MyHomePage>
     _tabController.addListener(() {
       setState(() {});
     });
-    
   }
 
   @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
-    return 
-    Scaffold(
-      appBar: _tabController.index==0?null:AppBar(
-        title: new Text('WhatsApp'),
-        bottom: new TabBar(
-          isScrollable: true,
-          controller: _tabController,
-          indicatorColor: Colors.white,
-          indicatorSize: TabBarIndicatorSize.tab,
-
-          tabs: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 13.0, left: 0),
-              child: Container(
-                width: 10,
-                height: 40,
-                child: Center(
-                    child: Icon(Icons.camera_alt,
-                        size: 25, color: new Color(0xff80cbc4))),
+    return Scaffold(
+      appBar: _tabController.index == 0
+          ? null
+          : AppBar(
+              title: new Text('WhatsApp',style: TextStyle(
+                fontSize: 17
+              ),),
+              bottom: new TabBar(
+                isScrollable: true,
+                controller: _tabController,
+                indicatorColor: Colors.white,
+                indicatorSize: TabBarIndicatorSize.tab,
+                tabs: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 13.0, left: 0),
+                    child: Container(
+                      width: 10,
+                      height: 40,
+                      child: Center(
+                          child: Icon(Icons.camera_alt,
+                              size: 25, color: new Color(0xff80cbc4))),
+                    ),
+                  ),
+                  Container(
+                      width: deviceWidth / 4.75, child: new Tab(text: "CHATS")),
+                  Container(
+                      width: deviceWidth / 4.75,
+                      child: new Tab(text: "STATUS")),
+                  Container(
+                      width: deviceWidth / 4.75, child: new Tab(text: "CALLS")),
+                ],
               ),
+              actions: <Widget>[
+                new Icon(Icons.search,size: 25,),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.0),
+                ),
+                MakePopupButton(
+                  index: _tabController.index,
+                )
+              ],
             ),
-            Container(width: deviceWidth / 4.75, child: new Tab(text: "CHATS")),
-            Container(
-                width: deviceWidth / 4.75, child: new Tab(text: "STATUS")),
-            Container(width: deviceWidth / 4.75, child: new Tab(text: "CALLS")),
-          ],
-        ),
-        actions: <Widget>[
-          new Icon(Icons.search),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-          ),
-          MakePopupButton(
-            index: _tabController.index,
-          )
-        ],
-      ),
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[

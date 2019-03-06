@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:whatsapp/pages/popup_screens/profile%20page.dart';
+
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -13,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List<IconData> _icon = List<IconData>();
   @override
   void initState() {
-      super.initState();
+    super.initState();
     _list = [
       "Account",
       "Chats",
@@ -22,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       "Invite a friend",
       "Help"
     ];
-    _icon=[
+    _icon = [
       MdiIcons.keyVariant,
       Icons.message,
       Icons.notifications,
@@ -31,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Icons.help
     ];
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,41 +41,54 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text("Settings"),
       ),
       body: ListView.builder(
-        itemCount: _list.length+1,
+        itemCount: _list.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return Column(
               children: <Widget>[
                 Container(
-              height: 100,
-              padding: EdgeInsets.only(top: 20),
-              child: ListTile(
-                title: Text("Biswajit",style: Theme.of(context).textTheme.headline,),
-                subtitle: Text("Busy",style: Theme.of(context).textTheme.subhead),
-                leading: Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(70),
-                      image: DecorationImage(
-                          image: NetworkImage(dummyData[index].avatarUrl),
-                          fit: BoxFit.cover)),
-                ),
-              ),
-            ),Divider()
+                    height: 100,
+                    padding: EdgeInsets.only(top: 20),
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProfilePage()));
+                      },
+                      title: Text(
+                        "Biswajit",
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                      subtitle: Text("Busy",
+                          style: Theme.of(context).textTheme.subhead),
+                      leading: Hero(
+                        tag: "profile_photo",
+                                              child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(70),
+                              image: DecorationImage(
+                                  image: NetworkImage(dummyData[index].avatarUrl),
+                                  fit: BoxFit.cover)),
+                        ),
+                      ),
+                    ),
+                  ),
+                Divider()
               ],
             );
           }
           return Column(children: <Widget>[
-          
             ListTile(
-              title: Text(_list[index-1]),
-              leading: (index!=1)?Icon(_icon[index-1],color: Color(0xff128C7E)):Transform.rotate(
-                angle: pi/4,
-                child: Icon(_icon[index-1],color: Color(0xff128C7E)),
-              ),
+              title: Text(_list[index - 1]),
+              leading: (index != 1)
+                  ? Icon(_icon[index - 1], color: Color(0xff128C7E))
+                  : Transform.rotate(
+                      angle: pi / 4,
+                      child: Icon(_icon[index - 1], color: Color(0xff128C7E)),
+                    ),
             ),
-              Divider(
+            Divider(
               indent: 70,
             ),
           ]);

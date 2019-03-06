@@ -22,12 +22,11 @@ class CallsScreen extends StatelessWidget {
                   },
                   trailing: Icon(
                     Icons.call,
-                    color: Theme.of(context).primaryColor,
+                    color:  Color(0xff128C7E),
                   ),
                   leading: Container(
                     height: 55,
                     width: 55,
-                    // child: Image.network(dummyData[i].avatarUrl),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(55),
                         image: DecorationImage(

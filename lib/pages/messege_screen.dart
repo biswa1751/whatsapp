@@ -36,7 +36,7 @@ class _MessegeScreenState extends State<MessegeScreen> {
             color: Colors.white,
           ),
           PopupMenuButton(
-            onSelected: (val){
+            onSelected: (val) {
               print("Value :$val");
             },
             itemBuilder: (context) {
@@ -65,7 +65,14 @@ class _MessegeScreenState extends State<MessegeScreen> {
                   value: "More",
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[Text("More"), Icon(Icons.play_arrow,size: 20,color: Colors.grey,)],
+                    children: <Widget>[
+                      Text("More"),
+                      Icon(
+                        Icons.play_arrow,
+                        size: 20,
+                        color: Colors.grey,
+                      )
+                    ],
                   ),
                 ),
               ];
@@ -96,7 +103,7 @@ class _MessegeScreenState extends State<MessegeScreen> {
               children: <Widget>[
                 Container(
                   width: 370,
-                  height: 40,
+                  height: 47,
                   child: TextField(
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.only(top: 1, bottom: 1),
@@ -138,17 +145,24 @@ class _MessegeScreenState extends State<MessegeScreen> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  width: 5,
+                ),
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).primaryColor,
+                  minRadius: 20,
+                  backgroundColor: Color(0xff128C7E),
                   child: IconButton(
-                    icon: Icon(Icons.mic),
+                    icon: Icon(
+                      Icons.mic,
+                      color: Colors.white,
+                    ),
                     onPressed: () {},
                   ),
                 )
               ],
             ),
             SizedBox(
-              height: 9,
+              height: 5,
             )
           ],
         ),
