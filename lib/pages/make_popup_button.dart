@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/settings_screen.dart';
+import 'package:whatsapp/pages/popup_screens/starred_messages.dart';
 import 'package:whatsapp/pages/popup_screens/status_privacy_screen.dart';
 import 'package:whatsapp/pages/select_contact_screen.dart';
 
@@ -94,6 +95,15 @@ class _MakePopupButtonState extends State<MakePopupButton> {
         } else if (val.toString() == "Status Privacy") {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => StatusPrivacyScreen()));
+        }else if(val.toString()=="Starred messages"){
+           Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) =>StarredMessages()));
+        }
+        else{
+           Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) =>Scaffold(
+                appBar: AppBar(title: Text(val.toString()),),
+              )));
         }
       },
       onCanceled: () {

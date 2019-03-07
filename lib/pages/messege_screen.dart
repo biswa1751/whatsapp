@@ -102,7 +102,7 @@ class _MessegeScreenState extends State<MessegeScreen> {
             Row(
               children: <Widget>[
                 Container(
-                  width: 370,
+                  width: 357,
                   height: 47,
                   child: TextField(
                     decoration: InputDecoration(
