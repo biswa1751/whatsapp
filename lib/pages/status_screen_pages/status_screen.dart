@@ -3,6 +3,7 @@ import 'package:whatsapp/models/chat_model.dart';
 import 'package:whatsapp/pages/camera_screen.dart';
 import 'package:whatsapp/pages/status_screen_pages/type_status_screen.dart';
 import 'package:camera/camera.dart';
+import 'package:whatsapp/pages/status_screen_pages/view_status_screen.dart';
 
 class StatusScreen extends StatelessWidget {
   final List<CameraDescription> cameras;
@@ -28,7 +29,6 @@ class StatusScreen extends StatelessWidget {
                         Container(
                           height: 55,
                           width: 55,
-                          // child: Image.network(dummyData[i].avatarUrl),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(55),
                               image: DecorationImage(
@@ -74,10 +74,15 @@ class StatusScreen extends StatelessWidget {
             return Column(
               children: <Widget>[
                 new ListTile(
+                  onTap: (){
+                     Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>ViewStatus(
+                      chat: dummyData[i],
+                    )));
+                  },
                     leading: Container(
                       height: 55,
                       width: 55,
-                      // child: Image.network(dummyData[i].avatarUrl),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(55),
                           image: DecorationImage(
