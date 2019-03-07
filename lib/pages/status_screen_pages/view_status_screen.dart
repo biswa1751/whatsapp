@@ -10,28 +10,28 @@ class ViewStatus extends StatefulWidget {
   _ViewStatusState createState() => _ViewStatusState();
 }
 
-class _ViewStatusState extends State<ViewStatus> with SingleTickerProviderStateMixin{
+class _ViewStatusState extends State<ViewStatus>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _controller=AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 4,milliseconds: 500)
-    )..addStatusListener((status){
-      if(status==AnimationStatus.completed)
-      {
-        Navigator.pop(context);
-      }
-    });
+    _controller = AnimationController(
+        vsync: this, duration: Duration(seconds: 4, milliseconds: 500))
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.pop(context);
+        }
+      });
     _controller.forward();
   }
+
   @override
   void dispose() {
-   _controller?.dispose();
+    _controller?.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,21 +52,20 @@ class _ViewStatusState extends State<ViewStatus> with SingleTickerProviderStateM
                   height: 25,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric( horizontal: 8),
-                  child:AnimatedBuilder(
-                    animation: _controller,
-                    builder: (context,child){
-                      return  LinearPercentIndicator(
-                    width: MediaQuery.of(context).size.width-16,
-                    fillColor: Colors.grey[600],
-                    lineHeight: 2,
-                    percent: _controller.value,
-                    progressColor: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 0),
-                  );
-                    },
-                  )
-                ),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return LinearPercentIndicator(
+                          width: MediaQuery.of(context).size.width - 16,
+                          fillColor: Colors.grey[600],
+                          lineHeight: 2,
+                          percent: _controller.value,
+                          progressColor: Colors.white,
+                          padding: EdgeInsets.symmetric(horizontal: 0),
+                        );
+                      },
+                    )),
                 ListTile(
                   title: Text(
                     widget.chat.name,
@@ -112,7 +111,19 @@ class _ViewStatusState extends State<ViewStatus> with SingleTickerProviderStateM
                 )
               ],
             ),
+            Positioned(
+              bottom: 20,
+              left: MediaQuery.of(context).size.width/2-20,
+              child:Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Icon(Icons.keyboard_arrow_up,color: Colors.white,),
+                   Text("REPLY",style: TextStyle(color: Colors.white),),
+                ],
+              )
+            )
           ],
-        ));
+        ),
+        );
   }
 }

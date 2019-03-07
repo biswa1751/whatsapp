@@ -36,18 +36,24 @@ class StatusScreen extends StatelessWidget {
                                   fit: BoxFit.cover)),
                         ),
                         Positioned(
-                          bottom: 0,
-                          right: 0,
+                          bottom: 2,
+                          right: 2,
                           child: Container(
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
+                            width: 20,
+                            height: 20,
                             decoration: BoxDecoration(
                                 color: Theme.of(context).accentColor,
-                                borderRadius: BorderRadius.circular(20)),
+                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
+                        )
                       ],
                     ),
                     title: Text(
@@ -74,20 +80,34 @@ class StatusScreen extends StatelessWidget {
             return Column(
               children: <Widget>[
                 new ListTile(
-                  onTap: (){
-                     Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>ViewStatus(
-                      chat: dummyData[i],
-                    )));
-                  },
-                    leading: Container(
-                      height: 55,
-                      width: 55,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(55),
-                          image: DecorationImage(
-                              image: NetworkImage(dummyData[i].avatarUrl),
-                              fit: BoxFit.cover)),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ViewStatus(
+                                chat: dummyData[i],
+                              )));
+                    },
+                    leading: Stack(
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(60),
+                              color: Colors.grey[400]),
+                          height: 60,
+                          width: 60,
+                        ),
+                        Container(
+                          height: 55,
+                          width: 55,
+                          margin: EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(55),
+                              border:
+                                  Border.all(color: Colors.white, width: 1.3),
+                              image: DecorationImage(
+                                  image: NetworkImage(dummyData[i].avatarUrl),
+                                  fit: BoxFit.cover)),
+                        ),
+                      ],
                     ),
                     title: new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
