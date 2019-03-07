@@ -5,7 +5,9 @@ import 'package:whatsapp/models/chat_model.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/account_screen.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/chats_settings_screen.dart';
+import 'package:whatsapp/pages/popup_screens/settings_pages/data_and_storage_usage.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/help_screen.dart';
+import 'package:whatsapp/pages/popup_screens/settings_pages/notifications_settings.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/profile_page.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -39,8 +41,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _navigatorScreen = [
       AccountScreen(),
       ChatsSettingsScreen(),
-      FlutterLogo(),
-      FlutterLogo(),
+      NotificationsSettings(),
+      Usage(),
       FlutterLogo(),
       HelpScreen()
     ];

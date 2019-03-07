@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class AccountScreen extends StatelessWidget {
  final List<String> _listAcoountScreen = [
     "Privacy",
@@ -25,6 +24,9 @@ class AccountScreen extends StatelessWidget {
             children: <Widget>[
               ListTile(
                 title: Text(_listAcoountScreen[index]),
+                onTap: (){
+                  print("fsf");
+                },
               ),
               Divider(
                 height: 0,
