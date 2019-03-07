@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:random_color/random_color.dart';
 
 class TypeStatusScreen extends StatefulWidget {
   @override
@@ -6,19 +7,29 @@ class TypeStatusScreen extends StatefulWidget {
 }
 
 class _TypeStatusScreenState extends State<TypeStatusScreen> {
+  RandomColor _randomColor = RandomColor();
+  Color _color;
+  @override
+  void initState() {
+    super.initState();
+    _color = _randomColor.randomColor();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink,
+      backgroundColor: _color,
       body: Column(
         children: <Widget>[
           Flexible(
             child: Center(
                 child: TextField(
               cursorColor: Colors.white,
+              
               style: TextStyle(fontSize: 40, color: Colors.white),
               decoration: InputDecoration(
                   hintText: "Type a status",
+
                   hintStyle: Theme.of(context).textTheme.display1,
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             )),
@@ -37,7 +48,11 @@ class _TypeStatusScreenState extends State<TypeStatusScreen> {
               ),
               IconButton(
                 icon: Icon(Icons.palette),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _color = _randomColor.randomColor();
+                  });
+                },
                 color: Colors.white,
               ),
               Spacer(),

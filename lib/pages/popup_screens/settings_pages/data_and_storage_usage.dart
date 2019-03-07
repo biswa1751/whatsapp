@@ -50,11 +50,14 @@ class _UsageState extends State<Usage> {
               ],
             ),
           ),
-          Text("NOTE: Voice messages are always automatically downloaded for the best communication experience",
-          style: TextStyle(
-            fontSize: 18,
-            color: Colors.grey
-          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical:5.0,horizontal: 10),
+            child: Text("NOTE: Voice messages are always automatically downloaded for the best communication experience",
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey
+            ),
+            ),
           ),
           Card(
             margin: EdgeInsets.all(0),
@@ -87,7 +90,7 @@ class _UsageState extends State<Usage> {
                       activeColor: Color(0xff128C7E),
                     ),
                 subtitle: Text("Lower the amount of data used during a WhatsApp call when using mobile data"),),
-                Divider(height: 40,),
+                Divider(height: 25,),
               ],
             ),
           ),
