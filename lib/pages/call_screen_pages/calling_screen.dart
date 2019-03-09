@@ -16,9 +16,9 @@ class _CallingScreenState extends State<CallingScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Row(
-          children: <Widget>[SizedBox(width: 50,),Icon(FontAwesomeIcons.whatsapp),Text(
+          children: <Widget>[SizedBox(width: 50,),Icon(FontAwesomeIcons.whatsapp,color: Color(0xff99c9c4),),Text(
           ' WHATSAPP VOICE CALL',
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15,color: Color(0xff99c9c4),),
         ),],),
         centerTitle: true,
         leading:IconButton(
@@ -36,7 +36,7 @@ class _CallingScreenState extends State<CallingScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text("RINGING",style: TextStyle(
-              color: Colors.white,
+              color: Color(0xff99c9c4),
               fontSize: 16
             ),),
           ),

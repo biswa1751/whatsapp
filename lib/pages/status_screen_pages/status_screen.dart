@@ -91,7 +91,7 @@ class StatusScreen extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(60),
-                              color: Colors.grey[400]),
+                              color: Color(0xffeef5f6)),
                           height: 60,
                           width: 60,
                         ),

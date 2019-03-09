@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage>
           ? null
           : AppBar(
               title: new Text(
-                'WhatsApp',
+                'WhatsAp',
                 style: TextStyle(fontSize: 17),
               ),
               bottom: new TabBar(
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage>
                       height: 40,
                       child: Center(
                           child: Icon(Icons.camera_alt,
-                              size: 25, color: new Color(0xff80cbc4))),
+                              size: 25, color: new Color(0xff83afaa))),
                     ),
                   ),
                   Container(

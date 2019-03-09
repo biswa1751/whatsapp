@@ -1,8 +1,7 @@
-# whatsapp
+# WhatsApp Clone
 
-A new Flutter project.
+  A Flutter project just for learning purpose.
 
-## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+  
+

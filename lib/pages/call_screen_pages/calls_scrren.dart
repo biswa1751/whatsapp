@@ -12,7 +12,7 @@ class CallsScreen extends StatelessWidget {
     return Scaffold(
       body: ListView.builder(
         itemCount: dummyData.length,
-        itemBuilder: (context, int i) {
+        itemBuilder: (context,i) {
           return Column(
             children: <Widget>[
               new ListTile(
