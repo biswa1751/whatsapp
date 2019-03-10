@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/models/chat_model.dart';
-import 'package:whatsapp/pages/camera_screen.dart';
+import 'package:whatsapp/pages/camera_screen/camera_screen.dart';
 import 'package:whatsapp/pages/status_screen_pages/type_status_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:whatsapp/pages/status_screen_pages/view_status_screen.dart';

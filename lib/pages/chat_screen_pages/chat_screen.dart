@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/pages/messege_screen.dart';
-import 'package:whatsapp/pages/select_contact_screen.dart';
-import '../models/chat_model.dart';
+import 'package:whatsapp/models/chat_model.dart';
+import 'package:whatsapp/pages/chat_screen_pages/messege_screen.dart';
+import 'package:whatsapp/helper/select_contact_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   @override

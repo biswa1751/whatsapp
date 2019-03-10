@@ -17,7 +17,7 @@ class _ViewStatusState extends State<ViewStatus>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: Duration(seconds: 4, milliseconds: 500))
+        vsync: this, duration: Duration(seconds: 3, milliseconds: 100))
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           Navigator.pop(context);
@@ -35,8 +35,15 @@ class _ViewStatusState extends State<ViewStatus>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
-        body: Stack(
+      backgroundColor: Colors.black,
+      body: GestureDetector(
+        onTapDown: (_) {
+          _controller.stop();
+        },
+        onTapUp: (_) {
+          _controller.forward();
+        },
+        child: Stack(
           children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
@@ -112,18 +119,24 @@ class _ViewStatusState extends State<ViewStatus>
               ],
             ),
             Positioned(
-              bottom: 20,
-              left: MediaQuery.of(context).size.width/2-20,
-              child:Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Icon(Icons.keyboard_arrow_up,color: Colors.white,),
-                   Text("REPLY",style: TextStyle(color: Colors.white),),
-                ],
-              )
-            )
+                bottom: 20,
+                left: MediaQuery.of(context).size.width / 2 - 20,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.keyboard_arrow_up,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "REPLY",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ))
           ],
         ),
-        );
+      ),
+    );
   }
 }

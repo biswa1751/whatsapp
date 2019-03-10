@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp/pages/popup_screens/settings_pages/settings_screen.dart';
 import 'package:whatsapp/pages/popup_screens/starred_messages.dart';
 import 'package:whatsapp/pages/popup_screens/status_privacy_screen.dart';
-import 'package:whatsapp/pages/select_contact_screen.dart';
+import 'package:whatsapp/helper/select_contact_screen.dart';
 
 class MakePopupButton extends StatefulWidget {
   final int index;

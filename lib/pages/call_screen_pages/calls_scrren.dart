@@ -3,7 +3,7 @@ import 'package:whatsapp/models/all_colors.dart';
 import 'package:whatsapp/models/chat_model.dart';
 import 'package:whatsapp/pages/call_screen_pages/call_info_screen.dart';
 import 'package:whatsapp/pages/call_screen_pages/calling_screen.dart';
-import 'package:whatsapp/pages/select_contact_screen.dart';
+import 'package:whatsapp/helper/select_contact_screen.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class CallsScreen extends StatelessWidget {
