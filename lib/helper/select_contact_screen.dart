@@ -9,7 +9,6 @@ class SelectContactScreen extends StatefulWidget {
   @override
   _SelectContactScreenState createState() => _SelectContactScreenState();
 }
-
 class _SelectContactScreenState extends State<SelectContactScreen> {
   @override
   Widget build(BuildContext context) {

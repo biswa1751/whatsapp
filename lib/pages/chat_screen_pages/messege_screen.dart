@@ -83,6 +83,7 @@ class _MessegeScreenState extends State<MessegeScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
+          color: Colors.grey,
           image: DecorationImage(
               image: NetworkImage(widget.chat.avatarUrl), fit: BoxFit.fill),
         ),
@@ -90,83 +91,109 @@ class _MessegeScreenState extends State<MessegeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Card(
+              // shape: CircleBorder(),
               margin: EdgeInsets.only(left: 15, top: 5),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Text("How are You?",
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              child: ClipPath(
+                clipper: ChatMessgeClipper(),
+                child: Container(
+                                width: 300,
+                                height: 300,
+                                padding: EdgeInsets.all(10),
+                                child: Text("How are You?",
+                                    style:
+                                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                              ),
               ),
             ),
-            Spacer(),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 357,
-                  height: 47,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(top: 1, bottom: 1),
-                      hintText: "Type a message",
-                      fillColor: Colors.white,
-                      filled: true,
-                      prefixIcon: IconButton(
-                        icon:
-                            Icon(Icons.insert_emoticon, color: Colors.blueGrey),
-                        onPressed: () {},
-                      ),
-                      suffixIcon: Container(
-                        width: 100,
-                        padding: EdgeInsets.only(right: 3, left: 1),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            IconButton(
-                              icon: Transform.rotate(
-                                  angle: -10.2,
-                                  child: Icon(Icons.attach_file,
-                                      color: Colors.blueGrey)),
-                              onPressed: () {},
-                            ),
-                            IconButton(
-                              icon: Icon(
-                                Icons.camera_alt,
-                                color: Colors.blueGrey,
+                          Spacer(),
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                width: 357,
+                                height: 47,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.only(top: 1, bottom: 1),
+                                    hintText: "Type a message",
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    prefixIcon: IconButton(
+                                      icon:
+                                          Icon(Icons.insert_emoticon, color: Colors.blueGrey),
+                                      onPressed: () {},
+                                    ),
+                                    suffixIcon: Container(
+                                      width: 100,
+                                      padding: EdgeInsets.only(right: 3, left: 1),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          IconButton(
+                                            icon: Transform.rotate(
+                                                angle: -10.2,
+                                                child: Icon(Icons.attach_file,
+                                                    color: Colors.blueGrey)),
+                                            onPressed: () {},
+                                          ),
+                                          IconButton(
+                                            icon: Icon(
+                                              Icons.camera_alt,
+                                              color: Colors.blueGrey,
+                                            ),
+                                            onPressed: () {},
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(100),
+                                        borderSide: BorderSide.none),
+                                  ),
+                                ),
                               ),
-                              onPressed: () {},
-                            )
-                          ],
-                        ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              CircleAvatar(
+                                minRadius: 20,
+                                backgroundColor: Color(0xff128C7E),
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.mic,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          )
+                        ],
                       ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(100),
-                          borderSide: BorderSide.none),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                CircleAvatar(
-                  minRadius: 20,
-                  backgroundColor: Color(0xff128C7E),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.mic,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            )
-          ],
-        ),
-      ),
-    );
+                  );
+                }
+              }
+              
+              class ChatMessgeClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    print(size.height.toString());
+    Path path=Path();
+    path.moveTo(0, 0);
+    path.lineTo(5, 5);
+    path.lineTo(5, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return null;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
+    return true;
   }
 }

@@ -148,11 +148,13 @@ class CallsScreen extends StatelessWidget {
                       i % 2 == 0
                           ? Icon(
                               Icons.call_made,
-                              color: Colors.green,
+                              color: accentColor,
+                              size: 18,
                             )
                           : Icon(
                               Icons.call_received,
                               color: Colors.red,
+                              size: 18,
                             ),
                       Text(
                         "Yesterday," + dummyData[i].time,
